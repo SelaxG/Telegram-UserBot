@@ -16,6 +16,18 @@ from userbot.events import register
 
 # ========================= CONSTANTS ============================
 AFKSTR = [
+    "Şu anda biraz meşgulum\nDaha sonra yazsan olur mu?",
+    "Ohhh",
+    "Nabre?",
+    "Az sonra geri döneceğim biraz beklersen sevinirim :)",
+    "Beeep booop",
+    "Az sonra geri döneceğim. Eğer dönmezsem...\nBiraz daha bekle :)",
+    "Ohhhhhh",
+    "OhhhHHHH",
+    "Hayat kısa ama yapılacak çok şey var...\nŞuan onlardan birini yapıyorum azsonra geri dönerim",
+    "Şu an müsait değilim. Bir şey lazımsa Pm'den yazabilirsin\nŞeeey.. orası biraz boşta, anında bakıyorum mesaj gelince :')",
+    "Şu taraftayım <----",
+    "Rahatsız etme kardeşim afk diyo işte",
     "I'm busy right now. Please talk in a bag and when I come back you can just give me the bag!",
     "I'm away right now. If you need anything, leave a message after the beep:\n`beeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeep`!",
     "You missed me, next time aim better.",
@@ -28,8 +40,6 @@ AFKSTR = [
     "Hello, welcome to my away message, how may I ignore you today?",
     "I'm away over 7 seas and 7 countries,\n7 waters and 7 continents,\n7 mountains and 7 hills,\n7 plains and 7 mounds,\n7 pools and 7 lakes,\n7 springs and 7 meadows,\n7 cities and 7 neighborhoods,\n7 blocks and 7 houses...\n\nWhere not even your messages can reach me!",
     "I'm away from the keyboard at the moment, but if you'll scream loud enough at your screen, I might just hear you.",
-    "I went that way\n---->",
-    "I went this way\n<----",
     "Please leave a message and make me feel even more important than I already am.",
     "I am not here so stop writing to me,\nor else you will find yourself with a screen full of your own messages.",
     "If I were here,\nI'd tell you where I am.\n\nBut I'm not,\nso ask me when I return...",
@@ -53,8 +63,7 @@ async def mention_afk(mention):
         if ISAFK:
             if mention.sender_id not in USERS:
                 if AFKREASON:
-                    await mention.reply(f"My Boss AFK right now.\
-                        \nReason: `{AFKREASON}`")
+                    await mention.reply(f"`{AFKREASON}`")
                 else:
                     await mention.reply(str(choice(AFKSTR)))
                 USERS.update({mention.sender_id: 1})
@@ -92,8 +101,7 @@ async def afk_on_pm(sender):
         if apprv and ISAFK:
             if sender.sender_id not in USERS:
                 if AFKREASON:
-                    await sender.reply(f"My Boss AFK right now.\
-                    \nReason: `{AFKREASON}`")
+                    await sender.reply(f"`{AFKREASON}`")
                 else:
                     await sender.reply(str(choice(AFKSTR)))
                 USERS.update({sender.sender_id: 1})
