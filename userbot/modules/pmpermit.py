@@ -15,10 +15,9 @@ from userbot import (COUNT_PM, CMD_HELP, BOTLOG, BOTLOG_CHATID,
 from userbot.events import register
 
 # ========================= CONSTANTS ============================
-UNAPPROVED_MSG = ("`Bleep blop! This is a bot. Don't fret.\n\n`"
-                  "`Seden hasn't approved you to PM.`"
-                  "`Please wait for Seden to look in, he mostly approves PMs.\n\n`"
-                  "`As far as I know, he doesn't usually approve retards though.`")
+UNAPPROVED_MSG = ("`Bleep blop! BU bir bot mesajıdır.\n\n`"
+                  "`SelaxG şu anda PM kabul etmiyor.`"
+                  "`Geri dönüş için lütfen bekleyiniz.\n\n`")
 # =================================================================
 
 
