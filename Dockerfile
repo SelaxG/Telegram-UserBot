@@ -67,7 +67,7 @@ RUN python3 -m ensurepip \
 #
 # Clone repo and prepare working directory
 #
-RUN git clone -b seden https://github.com/TeamDerUntergang/Telegram-UserBot /root/userbot
+RUN git clone -b seden https://github.com/SelaxG/Telegram-UserBot /root/userbot
 RUN mkdir /root/userbot/bin/
 WORKDIR /root/userbot/
 
