@@ -707,7 +707,7 @@ async def slap(replied_user, event):
 async def lol(lel):
     """ Ok... """
     okay = "-_-"
-    for i in range(10):
+    for i in range(9):
         okay = okay[:-1] + "_-"
         await lel.edit(okay)
 
@@ -900,6 +900,7 @@ async def faces(owo):
     await owo.edit(reply_text)
 
 
+                      
 @register(outgoing=True, pattern="^.react$")
 async def react_meme(react):
     """ Make your userbot react to everything. """
@@ -928,8 +929,14 @@ async def runner_lol(run):
 async def metoo(hahayes):
     """ Haha yes """
     await hahayes.edit(choice(METOOSTR))
+                      
 
-
+@register(outgoing=True, pattern="^.sj$")
+async def sj(sj):
+    """ sjsj """
+    await sj.edit(choice(SJ))    
+                      
+                      
 @register(outgoing=True, pattern="^.Oof$")
 async def Oof(e):
     t = "Oof"
@@ -1001,6 +1008,16 @@ async def clock(event):
     except BaseException:
         return
 
+@register(outgoing=True, pattern="^.sjs$")
+async def sjs(event):
+    deq = deque(list("😁🤣😜😁😎😋😂😀🤣😅😆"))
+    try:
+        for x in range(32):
+            await sleep(0.1)
+            await event.edit("".join(deq))
+            deq.rotate(1)
+    except BaseException:
+        return
 
 @register(outgoing=True, pattern="^.mock(?: |$)(.*)")
 async def spongemocktext(mock):
