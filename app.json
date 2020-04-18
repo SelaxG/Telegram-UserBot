@@ -10,8 +10,8 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/TeamDerUntergang/Telegram-UserBot",
-  "website":   "https://github.com/TeamDerUntergang",
+  "repository": "https://github.com/SelaxG/Telegram-UserBot",
+  "website":   "https://github.com/SelaxG",
   "success_url": "https://t.me/SedenUserBotSupport",
   "stack": "container",
   "env": {
