@@ -937,6 +937,22 @@ async def Oof(e):
         t = t[:-1] + "of"
         await e.edit(t)
 
+
+@register(outgoing=True, pattern="^.ohh$")
+async def Ohh(e):
+    t = "Ohh"
+    for j in range(16):
+        t = t[:-1] + "hh"
+        await e.edit(t)
+                      
+                      
+@register(outgoing=True, pattern="^.Ohh$")
+async def Ohh(e):
+    t = "Ohh"
+    for j in range(16):
+        t = t[:-1] + "hh"
+        await e.edit(t)
+
                       
 @register(outgoing=True, pattern="^.oem$")
 async def Oem(e):
