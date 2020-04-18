@@ -15,7 +15,7 @@ TELEGRAM_TOKEN=${BOT_API_KEY}
 export BOT_API_KEY TELEGRAM_TOKEN
 tg_sendinfo "<code>I am gonna merge staging into master</code>"
 cd
-git clone https://github.com/RaphielGang/Telegram-UserBot.git
+git clone https://github.com/SelaxG/Telegram-UserBot
 cd Telegram-UserBot
 git remote rm origin
 git remote add origin https://baalajimaestro:${GH_PERSONAL_TOKEN}@github.com/raphielgang/telegram-userbot.git
