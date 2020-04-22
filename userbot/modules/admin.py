@@ -30,8 +30,7 @@ from userbot.events import register
 PP_TOO_SMOL = "`The image is too small`"
 PP_ERROR = "`Failure while processing the image`"
 NO_ADMIN = "`I am not an admin!`"
-NO_PERM = "`I don't have sufficient permissions!`" \
-          "`Can you check my permissions please?`"
+NO_PERM = "`I don't have sufficient permissions!`"
 NO_SQL = "`Running on Non-SQL mode!`"
 
 CHAT_PP_CHANGED = "`Chat Picture Changed`"
@@ -921,10 +920,10 @@ async def get_bots(show):
     title = info.title if info.title else "this chat"
     mentions = f'<b>Bots in {title}:</b>\n'
     try:
-        if isinstance(message.to_id, PeerChat):
-            await show.edit("`I heard that only Supergroups can have bots.`")
-            return
-        else:
+       # if isinstance(message.to_id, PeerChat):
+        #    await show.edit("`I heard that only Supergroups can have bots.`")
+         #   return
+       # else:
             async for user in show.client.iter_participants(
                     show.chat_id, filter=ChannelParticipantsBots):
                 if not user.deleted:
