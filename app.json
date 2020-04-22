@@ -11,7 +11,7 @@
     "productivity"
   ],
   "repository": "https://github.com/SelaxG/Telegram-UserBot",
-  "website":   "https://github.com/SelaxG",
+  "website":   "https://github.com/TeamDerUntergang",
   "success_url": "https://t.me/SedenUserBotSupport",
   "stack": "container",
   "env": {
@@ -24,25 +24,34 @@
       "required": true
     },
     "STRING_SESSION": {
-      "description": "Get this value by running python3 string_session.py locally.",
+      "description": "Get this value by running python3 GenerateStringSession.py locally.",
       "required": true
+    },
+    "GENIUS_API_TOKEN": {
+      "description": "Get this value from https://genius.com/developers.",
+      "value": "0"
+    },
+    "GENIUS": {
+      "description": "Get this value from https://genius.com/developers., basically same as GENIUS_API_TOKEN.",
+      "value": "0"
     },
     "HEROKU_MEMEZ": {
       "description": "This should be True if the userbot is running on a Heroku Dyno.",
       "value": "True",
       "required": true
     },
-    "HEROKU_API_KEY": {
+    "HEROKU_APIKEY": {
       "description": "Your Heroku API key, get it from 'https://dashboard.heroku.com/account'",
       "value": ""
     },
-    "HEROKU_APP_NAME": {
+    "HEROKU_APPNAME": {
       "description": "Add the Heroku app name here. It helps with userbot updates.",
       "required": false
     },
     "UPSTREAM_REPO_URL": {
       "description": "In case you maintain a fork, add your repo URL here.",
-      "required": false
+      "value": "https://github.com/SelaxG/Telegram-UserBot",
+      "required": true
     },
     "COUNTRY": {
       "description": "Set your Country to be used in the .time and .date commands.",
