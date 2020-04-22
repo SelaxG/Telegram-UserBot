@@ -605,6 +605,10 @@ HIT = [
 
 WHERE = ["in the chest", "on the head", "on the butt", "on the crotch"]
 
+sj = ["sj komik espri kanki sjj",
+     "Anlayan anladı sjj",
+     "😳",
+     "15+16 sjj"]
 # ===========================================
 
 
@@ -948,7 +952,7 @@ async def Oof(e):
 @register(outgoing=True, pattern="^.ohh$")
 async def Ohh(e):
     t = "Ohh"
-    for j in range(16):
+    for j in range(13):
         t = t[:-1] + "hh"
         await e.edit(t)
                       
@@ -956,7 +960,7 @@ async def Ohh(e):
 @register(outgoing=True, pattern="^.Ohh$")
 async def Ohh(e):
     t = "Ohh"
-    for j in range(16):
+    for j in range(13):
         t = t[:-1] + "hh"
         await e.edit(t)
 
@@ -1012,7 +1016,7 @@ async def clock(event):
 async def sjs(event):
     deq = deque(list("😁🤣😜😁😎😋😂😀🤣😅😆"))
     try:
-        for x in range(32):
+        for x in range(16):
             await sleep(0.1)
             await event.edit("".join(deq))
             deq.rotate(1)
