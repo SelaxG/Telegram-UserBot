@@ -12,7 +12,7 @@ from asyncio import sleep
 
 @register(outgoing=True, pattern="^.notes$")
 async def notes_active(svd):
-    """ For .notes command, list all of the notes saved in a chat. """
+    """ Girilen .notes komutu, bir chatteki tüm kayıtlı notalrı gösterir. """
     try:
         from userbot.modules.sql_helper.notes_sql import get_notes
     except AttributeError:
