@@ -21,7 +21,7 @@ async def notes_active(svd):
     message = "`There are no saved notes in this chat`"
     notes = get_notes(svd.chat_id)
     for note in notes:
-        if message == "`There are no saved notes in this chat`":
+        if message == "`Burada kayıtlı hiçbir not yok.`":
             message = "Notes saved in this chat:\n"
             message += "`#{}`\n".format(note.keyword)
         else:
