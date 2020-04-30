@@ -30,14 +30,14 @@ async def fastpurger(purg):
                 await purg.client.delete_messages(chat, msgs)
                 msgs = []
     else:
-        await purg.edit("`I need a mesasge to start purging from.`")
+        await purg.edit("`Silmeye başlamak için bir mesaj vermelisin.`")
         return
 
     if msgs:
         await purg.client.delete_messages(chat, msgs)
     done = await purg.client.send_message(
-        purg.chat_id, f"`Fast purge complete!`\
-        \nPurged {str(count)} messages")
+        purg.chat_id, f"`Temizlik yapıldı!`\
+        \n{str(count)} mesaj başarıyla silindi")
 
     if BOTLOG:
         await purg.client.send_message(
@@ -49,7 +49,7 @@ async def fastpurger(purg):
 
 @register(outgoing=True, pattern="^.purgeme")
 async def purgeme(delme):
-    """ For .purgeme, delete x count of your latest message."""
+    """ .purgeme için, silmem gereken mesaj sayısını girmelisin."""
     message = delme.text
     count = int(message[9:])
     i = 1
@@ -63,7 +63,7 @@ async def purgeme(delme):
 
     smsg = await delme.client.send_message(
         delme.chat_id,
-        "`Purge complete!` Purged " + str(count) + " messages.",
+        "`Temizlik yapıldı!` " + str(count) + " mesaj başarıyla silindi.",
     )
     if BOTLOG:
         await delme.client.send_message(
