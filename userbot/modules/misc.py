@@ -87,7 +87,7 @@ async def creator(e):
 
 @register(outgoing=True, pattern="^.readme$")
 async def reedme(e):
-    await e.edit("[Seden README.md](https://github.com/TeamDerUntergang/Telegram-UserBot/blob/seden/README.md)")
+    await e.edit("[Seden README.md](https://github.com/SelaxG/Telegram-UserBot/blob/seden/README.md)")
     
 
 # Copyright (c) Gegham Zakaryan | 2019
@@ -108,7 +108,7 @@ async def repeat(rep):
 @register(outgoing=True, pattern="^.repo$")
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
-    await wannasee.edit("[Seden Repo](https://github.com/TeamDerUntergang/Telegram-UserBot)")
+    await wannasee.edit("[Seden Repo](https://github.com/SelaxG/Telegram-UserBot)")
 
 
 @register(outgoing=True, pattern="^.raw$")
