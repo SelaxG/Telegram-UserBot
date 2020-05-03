@@ -19,6 +19,9 @@ from telethon.tl.types import InputStickerSetID
 from telethon.tl.types import DocumentAttributeSticker
 
 KANGING_STR = [
+    "Kang pack büyüyor dostum :D"
+    "Yeni stickerlar geliyooo..."
+    "Dızladım helal et..."
     "Using Witchery to kang this sticker...",
     "Plagiarising hehe...",
     "Inviting this sticker over to my pack...",
@@ -32,9 +35,9 @@ KANGING_STR = [
 ]
 
 
-@register(outgoing=True, pattern="^.kang")
+@register(outgoing=True, pattern="^.dız")
 async def kang(args):
-    """ For .kang command, kangs stickers or creates new ones. """
+    """ For .dız command, kangs stickers or creates new ones. """
     user = await bot.get_me()
     if not user.username:
         user.username = user.first_name
@@ -311,14 +314,14 @@ async def get_pack_info(event):
 
 CMD_HELP.update({
     "stickers":
-    ".kang\
-\nUsage: Reply .kang to a sticker or an image to kang it to your userbot pack.\
-\n\n.kang [emoji('s)]\
-\nUsage: Works just like .kang but uses the emoji('s) you picked.\
-\n\n.kang [number]\
-\nUsage: Kang's the sticker/image to the specified pack but uses 🤔 as emoji.\
-\n\n.kang [emoji('s)] [number]\
-\nUsage: Kang's the sticker/image to the specified pack and uses the emoji('s) you picked.\
+    ".dız\
+\nUsage: Reply .dız to a sticker or an image to dız it to your userbot pack.\
+\n\n.dız [emoji('s)]\
+\nUsage: Works just like .dız but uses the emoji('s) you picked.\
+\n\n.dız [number]\
+\nUsage: dız's the sticker/image to the specified pack but uses 🤔 as emoji.\
+\n\n.dız [emoji('s)] [number]\
+\nUsage: dız's the sticker/image to the specified pack and uses the emoji('s) you picked.\
 \n\n.packinfo\
 \nUsage: Gets info about the sticker pack."
 })

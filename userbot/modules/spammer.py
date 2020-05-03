@@ -28,18 +28,18 @@ async def tmeme(e):
 @register(outgoing=True, pattern="^.spam")
 async def spammer(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
+    await e.delete()
         message = e.text
         counter = int(message[6:8])
         spam_message = str(e.text[8:])
         await asyncio.wait([e.respond(spam_message) for i in range(counter)])
-        await e.delete()
         if BOTLOG:
             await e.client.send_message(
                 BOTLOG_CHATID,
                 "#SPAM \n\n"
                 "Spam was executed successfully"
                 )
-                               
+
 @register(outgoing=True, pattern="^.bigspam")
 async def bigspam(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
@@ -55,8 +55,8 @@ async def bigspam(e):
                 "#BIGSPAM \n\n"
                 "Bigspam was executed successfully"
                 )
-        
-        
+
+
 @register(outgoing=True, pattern="^.picspam")
 async def tiny_pic_spam(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
@@ -93,7 +93,7 @@ async def spammer(e):
                 "#DelaySPAM \n\n"
                 "DelaySpam was executed successfully"
                 )
-                               
+
 CMD_HELP.update({
     "spammer": ".tspam <text>\
 \nUsage: Spam the text letter by letter.\

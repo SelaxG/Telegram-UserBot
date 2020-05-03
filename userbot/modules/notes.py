@@ -16,13 +16,13 @@ async def notes_active(svd):
     try:
         from userbot.modules.sql_helper.notes_sql import get_notes
     except AttributeError:
-        await svd.edit("`Running on Non-SQL mode!`")
+        await svd.edit("`SQL dışı modda çalışıyor!`")
         return
-    message = "`There are no saved notes in this chat`"
+    message = "`Bu sohbette kayıtlı not yok.`"
     notes = get_notes(svd.chat_id)
     for note in notes:
         if message == "`Burada kayıtlı hiçbir not yok.`":
-            message = "Notes saved in this chat:\n"
+            message = "Not mesajı kaydedildi:\n"
             message += "`#{}`\n".format(note.keyword)
         else:
             message += "`#{}`\n".format(note.keyword)
@@ -39,10 +39,10 @@ async def remove_notes(clr):
         return
     notename = clr.pattern_match.group(1)
     if rm_note(clr.chat_id, notename) is False:
-        return await clr.edit("`Couldn't find note:` **{}**".format(notename))
+        return await clr.edit("`Not bulunamadı:` **{}**".format(notename))
     else:
         return await clr.edit(
-            "`Successfully deleted note:` **{}**".format(notename))
+            "`Not başarıyla silindi:` **{}**".format(notename))
 
 
 @register(outgoing=True, pattern=r"^.save (\w*)")

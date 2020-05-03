@@ -122,7 +122,7 @@ async def pipcheck(pip):
 @register(outgoing=True, pattern="^.alive$")
 async def amialive(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit("`Hello Seden! I am alive ❤`")
+        await e.edit("`Hey Seden! Burdayım 💛`")
 
 
 CMD_HELP.update(

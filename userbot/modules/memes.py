@@ -605,11 +605,17 @@ HIT = [
 
 WHERE = ["in the chest", "on the head", "on the butt", "on the crotch"]
 
-sj = ["sj komik espri kanki sjj",
+SJ = ["sj komik espri kanki sjj",
      "Anlayan anladı sjj",
      "😳",
-     "15+16 sjj"]
-# ===========================================
+     "15+16 sjj"
+]
+
+IQLESS = ["♿ ah yes you retard af",
+    "so cancer",
+    "doctor says :\nBruh🔊",
+]
+# ==============================================================================
 
 
 @register(outgoing=True, pattern=r"^.(\w+)say (.*)")
@@ -754,6 +760,11 @@ async def cry(e):
 @register(outgoing=True, pattern="^.insult$")
 async def insult(e):
     """ I make you cry !! """
+    await e.edit(choice(INSULT_STRINGS))
+
+
+@register(outgoing=True, pattern="^.iqless$")
+async def iqless(e):
     await e.edit(choice(INSULT_STRINGS))
 
 
@@ -904,7 +915,7 @@ async def faces(owo):
     await owo.edit(reply_text)
 
 
-                      
+
 @register(outgoing=True, pattern="^.react$")
 async def react_meme(react):
     """ Make your userbot react to everything. """
@@ -933,14 +944,14 @@ async def runner_lol(run):
 async def metoo(hahayes):
     """ Haha yes """
     await hahayes.edit(choice(METOOSTR))
-                      
+
 
 @register(outgoing=True, pattern="^.sj$")
 async def sj(sj):
     """ sjsj """
-    await sj.edit(choice(SJ))    
-                      
-                      
+    await sj.edit(choice(SJ))
+
+
 @register(outgoing=True, pattern="^.Oof$")
 async def Oof(e):
     t = "Oof"
@@ -955,8 +966,14 @@ async def Ohh(e):
     for j in range(13):
         t = t[:-1] + "hh"
         await e.edit(t)
-                      
-                      
+
+@register(outgoing=True, pattern="^.skrrt$")
+async def skrrt(e):
+    t = "skrrt"
+    for j in range(13):
+        t = t[:-1] + "rr"
+        await e.edit(t)
+
 @register(outgoing=True, pattern="^.Ohh$")
 async def Ohh(e):
     t = "Ohh"
@@ -964,7 +981,7 @@ async def Ohh(e):
         t = t[:-1] + "hh"
         await e.edit(t)
 
-                      
+
 @register(outgoing=True, pattern="^.oem$")
 async def Oem(e):
     t = "Oem"
@@ -984,9 +1001,6 @@ async def Oem(e):
 
 
 
-@register(outgoing=True, pattern="^.iqless$")
-async def iqless(e):
-    await e.edit("♿ ah yes you retard af")
 
 
 @register(outgoing=True, pattern="^.moon$")
@@ -1149,6 +1163,31 @@ async def typewriter(typew):
         return
     sleep_time = 0.03
     typing_symbol = "|"
+    old_text = ""
+    await typew.edit(typing_symbol)
+    await sleep(sleep_time)
+    for character in message:
+        old_text = old_text + "" + character
+        typing_text = old_text + "" + typing_symbol
+        await typew.edit(typing_text)
+        await sleep(sleep_time)
+        await typew.edit(old_text)
+        await sleep(sleep_time)
+
+@register(pattern=r".yaz(?: |$)(.*)", outgoing=True)
+async def typewriter(typew):
+    """ Like typewriter! """
+    textx = await typew.get_reply_message()
+    message = typew.pattern_match.group(1)
+    if message:
+        pass
+    elif textx:
+        message = textx.text
+    else:
+        await typew.edit("`Give a text to type!`")
+        return
+    sleep_time = 0.03
+    typing_symbol = "_"
     old_text = ""
     await typew.edit(typing_symbol)
     await sleep(sleep_time)

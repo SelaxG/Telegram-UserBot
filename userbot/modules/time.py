@@ -95,12 +95,12 @@ async def time_func(tdata):
 
     if c_name != COUNTRY:
         await tdata.edit(
-            f"`It's`  **{dtnow}**  `in {c_name}({time_zone} timezone).`")
+            f"`{c_name}'de saat şu an `  **{dtnow}** `({time_zone} timezone).`")
         return
 
     elif COUNTRY:
-        await tdata.edit(f"`It's`  **{dtnow}**  `here, in {COUNTRY}"
-                         f"({time_zone} timezone).`")
+        await tdata.edit(f"`{COUNTRY}'de saat şu an `  **{dtnow}**"
+                         f"({time_zone} Zaman dilimi).`")
         return
 
 
