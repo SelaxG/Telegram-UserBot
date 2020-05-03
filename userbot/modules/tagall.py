@@ -23,13 +23,15 @@ from userbot.modules.admin import get_user_from_event
 async def _(event):
     if event.fwd_from:
         return
-    mentions = "@tagall"
+    mentions = "@tag"
     chat = await event.get_input_chat()
-    async for x in bot.iter_participants(chat, 100):
-        mentions += f"[\u2063](tg://user?id={x.id})"
+    leng = 0
+    async for x in bot.iter_participants(chat):
+        if leng < 4092:
+            mentions += f"[\u2063](tg://user?id={x.id})"
+            leng += 1
     await event.reply(mentions)
     await event.delete()
-
 
 @register(outgoing=True, pattern="^.admin")
 async def _(event):
@@ -47,10 +49,9 @@ async def _(event):
         await event.reply(mentions)
     await event.delete()
 
-
 CMD_HELP.update({
     "tagall":
     ".tagall\
-    \nKullanım: Bu komutu kullandığınızda sohbet içerisinde ki herkesi etiketler.\n\n.admin \
-    \nKullanım: Bu komutu kullandığınızda sohbet içerisinde ki yöneticileri etiketler."
+    \n**Kullanım**: Bu komutu kullandığınızda sohbet içerisinde ki herkesi etiketler.\n\n.admin \
+    \n**Kullanım**: Bu komutu kullandığınızda sohbet içerisinde ki yöneticileri etiketler."
 })
