@@ -1,83 +1,59 @@
-# We're using Alpine Latest
-FROM alpine:latest
+# Biz Arch Linux kullanıyoruz <3
+FROM archlinux:latest
 
-#
-# We have to uncomment Community repo for some packages
-#
-RUN sed -e 's;^#http\(.*\)/edge/community;http\1/edge/community;g' -i /etc/apk/repositories
 
-#
-# Installing Packages
-#
-RUN apk add --no-cache=true --update \
-        bash \
-    build-base \
-    bzip2-dev \
+# Gerekyi paketleri yükle
+RUN pacman -Syyu --noconfirm \
+    aria2 \
     curl \
+    chromium \
+    ffmpeg \
     figlet \
     gcc \
-    g++ \
     git \
-    sudo \
-    aria2 \
-    util-linux \
+    jq \
     libevent \
-    jpeg-dev \
-    libffi-dev \
-    libpq \
-    libwebp-dev \
+    libffi \
+    libjpeg \
+    libpng \
+    libpqxx \
+    libsystemd \
+    libwebp \
     libxml2 \
-    libxml2-dev \
-    libxslt-dev \
+    libxslt \
     linux-headers \
     musl \
     neofetch \
-    openssl-dev \
+    nss \
+    openssl \
     postgresql \
     postgresql-client \
-    postgresql-dev \
-    openssl \
-    pv \
-    jq \
-    wget \
-    python \
-    python-dev \
     python3 \
-    python3-dev \
-    readline-dev \
-    sqlite \
-    ffmpeg \
-    sqlite-dev \
+    python-pip \
+    pv \
     sudo \
-    chromium \
-    chromium-chromedriver \
-    zlib-dev \
-    jpeg 
-    
-  
+    tzdata \
+    util-linux \
+    wget  
 
 
-RUN python3 -m ensurepip \
-    && pip3 install --upgrade pip setuptools \
-    && rm -r /usr/lib/python*/ensurepip && \
-    if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
-    if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
-    rm -r /root/.cache
+# Repoyu klonla ve çalışma dizinini hazırla
+RUN git clone https://github.com/NaytSeyd/Telegram-UserBot -b seden /root/sedenbot
+RUN mkdir /root/sedenbot/bin/
+WORKDIR /root/sedenbot/
 
-#
-# Clone repo and prepare working directory
-#
-RUN git clone -b seden https://github.com/SelaxG/Telegram-UserBot /root/userbot
-RUN mkdir /root/userbot/bin/
-WORKDIR /root/userbot/
 
-#
-# Copies session and config (if it exists)
-#
-COPY ./sample_config.env ./userbot.session* ./config.env* /root/userbot/
+# Oturum ve yapılandırmayı kopyala (varsa)
+COPY ./sample_config.env ./userbot.session* ./config.env* /root/sedenbot/
 
-#
-# Install requirements
-#
+
+# Zaman dilimini ayarla
+ENV TZ=Europe/Istanbul
+
+
+# Gerekli pip modüllerini kur
 RUN pip3 install -r requirements.txt
-CMD ["python3","-m","userbot"]
+
+
+# Botu çalıştır
+CMD ["python3","main.py"]
