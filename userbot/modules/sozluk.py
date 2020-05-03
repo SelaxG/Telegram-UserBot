@@ -1,3 +1,9 @@
+# Copyright (C) 2019 The Raphielscape Company LLC.
+# Copyright (C) 2020 TeamDerUntergang.
+#
+# Licensed under the Raphielscape Public License, Version 1.c (the "License");
+# you may not use this file except in compliance with the License.
+
 """
 Turkish word meaning. Only Turkish. Coded @By_Azade, Seden uyarlaması @qulec
 """
@@ -9,7 +15,6 @@ from userbot.modules.admin import get_user_from_event
 
 from html.parser import HTMLParser
 from bs4 import BeautifulSoup
-
 
 def searchTureng_tr(word):
     url="https://tureng.com/tr/turkce-ingilizce/"+word
@@ -30,20 +35,20 @@ def searchTureng_tr(word):
         return "Sonuç bulunamadı"
 
 @register(outgoing=True, pattern="^.tureng ?(.*)")
-async def tureng(event):
+async def tureng(event): 
     input_str = event.pattern_match.group(1)
     result = searchTureng_tr(input_str)
     await event.edit(result)
 
 @register(outgoing=True, pattern="^.tdk ?(.*)")
-async def tdk(event):
+async def tdk(event): 
     if event.fwd_from:
         return
     inp = event.pattern_match.group(1)
     kelime = "https://sozluk.gov.tr/gts?ara={}".format(inp)
     headers = {"USER-AGENT": "Seden"}
     response = requests.get(kelime, headers=headers).json()
-
+    
     try:
         anlam_sayisi = response[0]['anlam_say']
         x = "TDK Sözlük\n\nKelime: **{}**\n".format(inp)
@@ -57,6 +62,6 @@ async def tdk(event):
 CMD_HELP.update({
     "sozluk":
     ".tdk <kelime> .\
-    \nVerdiğiniz kelimeyi TDK Sözlükte arar.\n\n.tureng <kelime> .\
-    \nVerdiğiniz kelimeyi Tureng Sözlükte arar."
+    \n**Kullanım**: Verdiğiniz kelimeyi TDK Sözlükte arar.\n\n.tureng <kelime> .\
+    \n**Kullanım**: Verdiğiniz kelimeyi Tureng Sözlükte arar."
 })
